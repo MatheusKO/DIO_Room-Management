@@ -1,0 +1,86 @@
+<h2>Room Details</h2>
+<hr/>
+
+<form #roomForm="ngForm" ngForm *ngIf="room">
+
+  <div class="form-group row mb-2">
+    <label class="col-sm-2 col-form-label">Name</label>
+  
+    <div class="col-sm-10">
+      <input
+        type="text"
+        class="form-control"
+        name="name"
+        #roomName="ngModel"
+        required
+        [(ngModel)]="room.name"
+      >
+      
+      <div class="invalid-feedback">
+        <span>Room name is required</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="form-group row mb-2">
+    <label class="col-sm-2 col-form-label">Date</label>
+  
+    <div class="col-sm-10">
+      <input
+        name="date"
+        [(ngModel)]="room.date"
+        #roomDate="ngModel"
+        type="text"
+        class="form-control"
+        required
+      >
+      
+      <div class="invalid-feedback">
+        <span>Room date is required</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="form-group row mb-2">
+    <label class="col-sm-2 col-form-label">Start Hour</label>
+  
+    <div class="col-sm-10">
+      <input
+      name="startHour"
+        [(ngModel)]="room.startHour"
+        #roomStartHour="ngModel"
+        type="text"
+        class="form-control"
+        required
+      >
+      
+      <div class="invalid-feedback">
+        <span>Room Start Hour is required</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="form-group row mb-2">
+    <label class="col-sm-2 col-form-label">End Hour</label>
+  
+    <div class="col-sm-10">
+      <input
+      name="endHour"
+        [(ngModel)]="room.endHour"
+        #roomEndHour="ngModel"
+        type="text"
+        class="form-control"
+        required
+      >
+      
+      <div class="invalid-feedback">
+        <span>Room End Hour is required</span>
+      </div>
+    </div>
+
+  </div>
+
+  <button [disabled]="roomForm.invalid"  (click)="save()" class="btn btn-primary" style="margin-right: 3px;">Save</button>
+  <button [routerLink]="['/rooms']" class="btn btn-secondary">Back</button>
+
+</form>

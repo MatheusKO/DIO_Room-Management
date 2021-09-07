@@ -1,0 +1,25 @@
+<h2>Rooms List</h2>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Date</th>
+      <th>Start Hour</th>
+      <th>End Hour</th>
+      <th>Options</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let room of listRooms">
+      <td>{{ room.name }}</td>
+      <td>{{ room.date }}</td>
+      <td>{{ room.startHour }}</td>
+      <td>{{ room.endHour }}</td>
+      <td>
+        <a [routerLink]="['/rooms/details', room.id]" class="btn btn-primary" style="margin-right: 2px;">Edit</a>
+        <button (click)="deleteById(room.id || 0)" class="btn btn-danger">Delete</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
